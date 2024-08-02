@@ -49,7 +49,7 @@ let
           ])
         ])
 
-        (subelem "os" [ ]
+        (subelem "os" [ (subattrhack "hack" "firmware" typeString) ]
           [
             (elem "type" [ (subattr "arch" typeString) (subattr "machine" typeString) ] (sub "type" typeString))
             (subelem "loader" [ (subattr "readonly" typeBoolYesNo) (subattr "secure" typeBoolYesNo) (subattr "type" typeString)  ] (sub "path" typePath))
@@ -70,7 +70,7 @@ let
             (subelem "smbios" [ (subattr "mode" typeString) ] [ ])
             (subelem "firmware" [ ] 
               [ 
-                (subelem "feature" [(subattr "enabled" typeBoolYesNo) (subattr "name" typeString)]) []
+                (subelem "feature" [(subattr "enabled" typeBoolYesNo) (subattr "name" typeString)] []) 
               ]
             )
           ]

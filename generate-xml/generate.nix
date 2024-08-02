@@ -35,6 +35,8 @@ rec
 
   subattr = atype: contents: sub atype (attr atype contents);
 
+  subattrhack = hack: atype: contents: sub hack (attr atype contents);
+
   subelem = etype: attrs: contents: sub etype (many (elem etype attrs contents));
 
   typeConstant = c: x: c;
