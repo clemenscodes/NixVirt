@@ -68,6 +68,11 @@ let
             (subelem "initarg" [ ] typeString)
             (subelem "cmdline" [ ] (sub "options" typeString))
             (subelem "smbios" [ (subattr "mode" typeString) ] [ ])
+            (subelem "firmware" [ ] 
+              [ 
+                (subelem "feature" [(subattr "enabled" typeBoolYesNo) (subattr "name" typeString)]) []
+              ]
+            )
           ]
         )
         (subelem "memoryBacking" [ ]
