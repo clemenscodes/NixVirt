@@ -52,7 +52,7 @@ let
         (subelem "os" [ ]
           [
             (elem "type" [ (subattr "arch" typeString) (subattr "machine" typeString) ] (sub "type" typeString))
-            (subelem "loader" [ (subattr "readonly" typeBoolYesNo) (subattr "type" typeString) ] (sub "path" typePath))
+            (subelem "loader" [ (subattr "readonly" typeBoolYesNo) (subattr "secure" typeBoolYesNo) (subattr "type" typeString)  ] (sub "path" typePath))
             (subelem "nvram"
               [
                 (subattr "template" typePath)
