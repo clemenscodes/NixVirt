@@ -4,36 +4,35 @@ let
 
   # https://libvirt.org/formatstorage.html
   process = with generate;
-    elem "pool" [ (subattr "type" typeString) ]
-      [
-        (subelem "name" [ ] typeString)
-        (subelem "uuid" [ ] typeString)
+    elem "pool" [(subattr "type" typeString)]
+    [
+      (subelem "name" [] typeString)
+      (subelem "uuid" [] typeString)
 
-        (subelem "features" [ ]
-          [
-            (subelem "cow" [ subattr "state" typeBoolYesNo ] [ ])
+      (subelem "features" []
+        [
+          (subelem "cow" [subattr "state" typeBoolYesNo] [])
+        ])
+      (subelem "source" []
+        [
+          (subelem "device"
+            [
+              (subattr "path" typeString)
+            ] [])
+          (subelem "dir"
+            [
+              (subattr "path" typeString)
+            ] [])
+        ])
+      (subelem "target" []
+        [
+          (subelem "path" [] typeString)
+          (subelem "permissions" [] [
+            (subelem "mode" [] typeString)
+            (subelem "owner" [] typeString)
+            (subelem "group" [] typeString)
           ])
-        (subelem "source" [ ]
-          [
-            (subelem "device"
-              [
-                (subattr "path" typeString)
-              ] [ ])
-            (subelem "dir"
-              [
-                (subattr "path" typeString)
-              ] [ ])
-          ])
-        (subelem "target" [ ]
-          [
-            (subelem "path" [ ] typeString)
-            (subelem "permissions" [ ] [
-              (subelem "mode" typeString)
-              (subelem "owner" typeString)
-              (subelem "group" typeString)
-            ])
-          ])
-      ];
-
+        ])
+    ];
 in
-obj: xml.toText (process obj)
+  obj: xml.toText (process obj)
