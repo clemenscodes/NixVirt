@@ -27,7 +27,11 @@ let
         (subelem "target" [ ]
           [
             (subelem "path" [ ] typeString)
-            (subelem "permissions" [ ] [ ])
+            (subelem "permissions" [ ] [
+              (subelem "mode" typeString)
+              (subelem "owner" typeString)
+              (subelem "group" typeString)
+            ])
           ])
       ];
 
