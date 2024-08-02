@@ -159,6 +159,7 @@ let
                 (subelem "wake_alarm" [ (subattr "state" typeBoolOnOff) ] [ ])
               ])
             (subelem "vmport" [ (subattr "state" typeBoolOnOff) ] [ ])
+            (subelem "smm" [ (subattr "state" typeBoolOnOff) ] [ ])
             (subelem "kvm" [ ] [
               (subelem "hidden" [ (subattr "state" typeBoolOnOff) ] [ ])
               (subelem "hint-dedicated" [ (subattr "state" typeBoolOnOff) ] [ ])
