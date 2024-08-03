@@ -39,6 +39,8 @@ rec
 
   subelem = etype: attrs: contents: sub etype (many (elem etype attrs contents));
 
+  subelemhack = hack: etype: attrs: contents: sub hack (many (elem etype attrs contents));
+
   typeConstant = c: x: c;
   typeString = typeConvert "string" builtins.isString id;
   typeInt = typeConvert "int" builtins.isInt builtins.toString;

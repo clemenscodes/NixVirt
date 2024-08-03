@@ -360,6 +360,7 @@ let
                 ]
                 [
                   (subelem "master" [ (subattr "startport" typeInt) ] [ ])
+                  (subelemhack "hack" "model" [ (subattr "name" typeString) ] [])
                   targetelem
                   addresselem
                 ])
