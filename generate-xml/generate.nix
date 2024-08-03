@@ -29,6 +29,12 @@ rec
         (map (a: a subject) attrs)
         (if isList contents then map (c: c subject) contents else contents subject);
 
+  elemhack = with builtins;
+    hack: etype: attrs: contents: subject:
+      xml.elem etype
+        (map (a: a subject) attrs)
+        (if isList contents then map (c: c subject) contents else contents subject);
+
   subelemraw = etype: attrs: sub etype (elem etype attrs id);
 
   attr = atype: contents: subject: xml.attr atype (contents subject);
@@ -39,7 +45,7 @@ rec
 
   subelem = etype: attrs: contents: sub etype (many (elem etype attrs contents));
 
-  subelemhack = hack: etype: attrs: contents: sub hack (many (elem etype attrs contents));
+  subelemhack = hack: etype: attrs: contents: sub hack (many (elemhack hack etype attrs contents));
 
   typeConstant = c: x: c;
   typeString = typeConvert "string" builtins.isString id;
