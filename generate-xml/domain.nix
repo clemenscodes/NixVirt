@@ -188,6 +188,7 @@ let
               [
                 (subattr "sockets" typeInt)
                 (subattr "dies" typeInt)
+                (subattr "clusters" typeInt)
                 (subattr "cores" typeInt)
                 (subattr "threads" typeInt)
               ]
