@@ -4,8 +4,13 @@ let
 
   # https://libvirt.org/formatdomain.html
   process = with generate;
-    elem "domain" [ (subattr "type" typeString) ]
+    elem "domain" [ (subattr "type" typeString) (subattr "xmlns:qemu" (typeConstant "http://libvirt.org/schemas/domain/qemu/1.0")) ]
       [
+        (subelem "qemu:capabilities" [ ] 
+          [
+            (subelem "qemu:del" [ (subattr "capability" typeString) ] [])
+          ]
+        )
         (subelem "name" [ ] typeString)
         (subelem "uuid" [ ] typeString)
         (subelem "title" [ ] typeString)
@@ -492,6 +497,7 @@ let
                 ])
             ]
         )
+
         (sub "qemu-commandline" (elem "commandline"
           [ (attr "xmlns" (typeConstant "http://libvirt.org/schemas/domain/qemu/1.0")) ]
           [
