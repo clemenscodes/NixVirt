@@ -388,7 +388,7 @@ let
                       (subelem "product" [(subattr "id" typeString)] []) 
                     ])
                   (subelem "boot" [ (subattr "order" typeInt) ] [ ])
-                  (subelem "rom" [(subattr "bar" typeBoolOnOff)] [])
+                  (subelem "rom" [(subattr "bar" typeBoolOnOff) (subattr "file" typeString)] [])
                   addresselem
                 ]
               )
