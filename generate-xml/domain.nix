@@ -11,6 +11,11 @@ let
             (subelem "qemu:del" [ (subattr "capability" typeString) ] [])
           ]
         )
+        (subelem "qemu:commandline" [ ] 
+          [
+            (subelem "qemu:arg" [ (subattr "value" typeString) ] [])
+          ]
+        )
         (subelem "name" [ ] typeString)
         (subelem "uuid" [ ] typeString)
         (subelem "title" [ ] typeString)
